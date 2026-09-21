@@ -1,24 +1,85 @@
 {
   "info": {
     "_postman_id": "2d0f20d8-17b5-4714-a09f-e95589e8fd6c",
-    "name": "test",
+    "name": "CollTest",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "48246929"
   },
   "item": [
     {
       "name": "GetDriver",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "https://695bcf701d8041d5eeb88ad5.mockapi.io/testapi/api/v1/users",
+          "protocol": "https",
+          "host": [
+            "695bcf701d8041d5eeb88ad5",
+            "mockapi",
+            "io"
+          ],
+          "path": [
+            "testapi",
+            "api",
+            "v1",
+            "users"
+          ]
+        }
       },
       "response": []
     },
     {
-      "name": "New Request",
+      "name": "AddUser",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});"
+            ]
+          }
+        }
+      ],
       "request": {
         "method": "POST",
-        "header": []
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "    {\r\n        \"lastname\": \"Djamel\",\r\n        \"firstname\": \"You\",\r\n        \"address\": {\r\n            \"numStreet\": 15,\r\n            \"streetName\": \"Tanya Burgs\",\r\n            \"postalCode\": \"75001\",\r\n            \"city\": \"Edmond\"\r\n        }\r\n\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://695bcf701d8041d5eeb88ad5.mockapi.io/testapi/api/v1/users",
+          "protocol": "https",
+          "host": [
+            "695bcf701d8041d5eeb88ad5",
+            "mockapi",
+            "io"
+          ],
+          "path": [
+            "testapi",
+            "api",
+            "v1",
+            "users"
+          ]
+        }
       },
       "response": []
     }
